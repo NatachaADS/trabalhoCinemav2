@@ -10,3 +10,12 @@ insert into filme (titulo_filme, duracao_filme, classificacao_filme, genero_film
 insert into venda_ingresso (horario_venda_ingresso) values ('22:55');
 insert into venda_ingresso (horario_venda_ingresso) values ('07:45');
 insert into venda_ingresso (horario_venda_ingresso) values ('10:00');
+insert into atendente (nome_atendente, matricula_atendente) values ('Amanda Farias', 100200300);
+insert into atendente (nome_atendente, matricula_atendente) values ('Rafael V', 100400500);
+insert into atendente (nome_atendente, matricula_atendente) values ('Carol P', 100600700);
+insert into cliente (nome_cliente, cpf_cliente) values ('Brenda Guimaraes', '000.000.000-00');
+insert into cliente (nome_cliente, cpf_cliente) values ('Daniel Rodrigues', '111.111.111-11');
+insert into cliente (nome_cliente, cpf_cliente) values ('Fernanda Nunes', '222.222.222-22');
+insert into orcamento (diario_orcamento, semanal_orcamento, mensal_orcamento) values (10000, 50000, 500000);
+insert into orcamento (diario_orcamento, semanal_orcamento, mensal_orcamento) values (20000, 40000, 400000);
+insert into orcamento (diario_orcamento, semanal_orcamento, mensal_orcamento) values (30000, 80000, 800000);

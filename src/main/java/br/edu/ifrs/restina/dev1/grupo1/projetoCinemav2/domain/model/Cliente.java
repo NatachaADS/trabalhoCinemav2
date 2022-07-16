@@ -7,17 +7,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Data
 @Entity
-public class Sala {
+public class Cliente {
 
     @EqualsAndHashCode.Include
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)    // Id auto increment
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String numeroSala;
-    private int qntAssentos;
+    private String nomeCliente;
+    private String cpfCliente;
 
 }

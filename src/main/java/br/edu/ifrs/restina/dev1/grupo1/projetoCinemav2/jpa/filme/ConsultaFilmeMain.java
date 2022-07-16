@@ -21,7 +21,8 @@ public class ConsultaFilmeMain {
         List<Filme> todosFilmes = filmeRepository.listar();
 
         for (Filme filme : todosFilmes) {
-            System.out.println(filme.getTituloFilme());
+            System.out.printf("%s - %s - %s - %s - %s\n", filme.getTituloFilme(), filme.getDuracaoFilme(),
+                    filme.getClassificacaoFilme(), filme.getGeneroFilme(), filme.getSinopseFilme());
         }
     }
 }
