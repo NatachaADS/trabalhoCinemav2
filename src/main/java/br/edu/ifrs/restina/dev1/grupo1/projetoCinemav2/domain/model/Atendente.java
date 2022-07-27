@@ -22,4 +22,8 @@ public class Atendente {
     @ManyToOne
     private Cliente cliente;
 
+    @ManyToOne
+    private Orcamento orcamento;
+
+
 }

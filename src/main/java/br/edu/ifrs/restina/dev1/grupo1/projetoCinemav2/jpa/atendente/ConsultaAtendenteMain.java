@@ -22,8 +22,8 @@ public class ConsultaAtendenteMain {
 
         for (Atendente atendente : todosAtendentes) {
             //System.out.printf("%s - %d\n", atendente.getNomeAtendente(), atendente.getMatriculaAtendente());
-            System.out.printf("%s - %d - %s\n", atendente.getNomeAtendente(), atendente.getMatriculaAtendente(),
-                    atendente.getCliente().getNomeCliente());
+            System.out.printf("%s - %d - %s - %d\n", atendente.getNomeAtendente(), atendente.getMatriculaAtendente(),
+                    atendente.getCliente().getNomeCliente(), atendente.getOrcamento().getDiarioOrcamento());
         }
     }
 }
