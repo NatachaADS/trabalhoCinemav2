@@ -29,9 +29,15 @@ public class InclusaoAtendenteMain {
         atendente3.setNomeAtendente("Carol P");
         atendente3.setMatriculaAtendente(100600700);
 
+
         atendente1 = atendenteRepository.salvar(atendente1);
         atendente2 = atendenteRepository.salvar(atendente2);
         atendente3 = atendenteRepository.salvar(atendente3);
+
+        System.out.printf("%s - %d\n", atendente3.getNomeAtendente(), atendente3.getMatriculaAtendente());
+        //System.out.printf("%s - %d - %s\n", atendente3.getNomeAtendente(), atendente3.getMatriculaAtendente(), atendente3.getCliente().getNomeCliente());
+
+
 
     }
 }

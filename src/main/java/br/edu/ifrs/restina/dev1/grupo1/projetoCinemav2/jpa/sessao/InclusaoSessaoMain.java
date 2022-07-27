@@ -7,6 +7,8 @@ import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
 
+import java.time.LocalDateTime;
+
 public class InclusaoSessaoMain {
 
     public static void main(String[] args) {
@@ -29,6 +31,10 @@ public class InclusaoSessaoMain {
         sessao1 = sessaoRepository.salvar(sessao1);
         sessao2 = sessaoRepository.salvar(sessao2);
         sessao3 = sessaoRepository.salvar(sessao3);
+
+    //    LocalDateTime test = sessao1.getLocalDateTime();
+    //    System.out.printf("Data: ", String.valueOf(test));
+
 
     }
 }

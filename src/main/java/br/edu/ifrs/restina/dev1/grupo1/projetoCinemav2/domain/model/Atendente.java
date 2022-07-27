@@ -16,6 +16,10 @@ public class Atendente {
     private Long id;
 
     private String nomeAtendente;
+
     private int matriculaAtendente;
+
+    @ManyToOne
+    private Cliente cliente;
 
 }
