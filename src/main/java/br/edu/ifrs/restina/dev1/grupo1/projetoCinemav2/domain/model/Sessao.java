@@ -4,10 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.text.DateFormat;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -27,5 +24,11 @@ public class Sessao {
   //  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   //  private LocalDateTime localDateTime;
 
+    @OneToOne // JPA - Associação de UM para UM
+    @JoinColumn(unique = true)
+    private Sala sala;
+
+    @ManyToOne // JPA - Associação de Muitos para um
+    private Filme filme;
 
 }

@@ -17,4 +17,7 @@ public class VendaIngresso {
 
     private String horarioVendaIngresso;
 
+    @ManyToOne // JPA - Associação de Muitos para um
+    private Sessao sessao;
+
 }

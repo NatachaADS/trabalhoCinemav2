@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import java.util.List;
 
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Data
@@ -19,11 +20,12 @@ public class Atendente {
 
     private int matriculaAtendente;
 
-    @ManyToOne
+    @ManyToOne // JPA - Associação de Muitos para um
     private Cliente cliente;
 
-    @ManyToOne
+    @ManyToOne // JPA - Associação de Muitos para um
     private Orcamento orcamento;
 
-
+    @ManyToMany // JPA - Associação de Muitos para Muitos
+    private List<VendaIngresso> vendaIngressos;
 }

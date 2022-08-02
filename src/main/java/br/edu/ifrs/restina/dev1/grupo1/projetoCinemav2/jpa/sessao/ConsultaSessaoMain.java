@@ -21,7 +21,10 @@ public class ConsultaSessaoMain {
         List<Sessao> todasSessoes = sessaoRepository.listar();
 
         for (Sessao sessao : todasSessoes) {
-            System.out.println(sessao.getHorarioSessao());
+            //System.out.println(sessao.getHorarioSessao());
+            //System.out.printf("%s - %s \n", sessao.getHorarioSessao(), sessao.getFilme().getTituloFilme());
+            System.out.printf("%s - %s - %s\n", sessao.getHorarioSessao(), sessao.getSala().getNumeroSala(),
+                    sessao.getFilme().getTituloFilme());
         }
     }
 }

@@ -21,7 +21,8 @@ public class ConsultaVendaIngressoMain {
         List<VendaIngresso> todasVendaIngressos = vendaIngressoRepository.listar();
 
         for (VendaIngresso vendaIngresso : todasVendaIngressos) {
-            System.out.println(vendaIngresso.getHorarioVendaIngresso());
+            //System.out.println(vendaIngresso.getHorarioVendaIngresso());
+            System.out.printf("%s - %s\n", vendaIngresso.getHorarioVendaIngresso(), vendaIngresso.getSessao().getHorarioSessao());
         }
     }
 }
