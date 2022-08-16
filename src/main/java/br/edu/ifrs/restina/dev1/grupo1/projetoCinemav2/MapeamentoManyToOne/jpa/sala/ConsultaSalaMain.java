@@ -21,7 +21,7 @@ public class ConsultaSalaMain {
         List<Sala> todasSalas = salaRepository.listar();
 
         for (Sala sala : todasSalas) {
-            System.out.printf("%s - %d - %s\n", sala.getNumeroSala(), sala.getQntAssentos());
+            System.out.printf("%s - %d\n", sala.getNumeroSala(), sala.getQntAssentos());
             //        sala.getSessao().getHorarioSessao());
         }
     }

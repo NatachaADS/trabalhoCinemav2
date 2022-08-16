@@ -29,7 +29,11 @@ public class Atendente {
     @JoinColumn(nullable = false) //
     private Orcamento orcamento;
 
-    @ManyToMany // JPA - Associação de Muitos para Muitos
-    @JoinColumn(nullable = false)
-    private List<VendaIngresso> vendaIngressos;
+    @ManyToOne // JPA - Associação de Muitos para um
+    @JoinColumn(nullable = false) //
+    private VendaIngresso vendaIngresso;
+
+ //   @ManyToMany // JPA - Associação de Muitos para Muitos
+ //   @JoinColumn(nullable = false)
+ //   private List<VendaIngresso> vendaIngressos;
 }

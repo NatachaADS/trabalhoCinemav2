@@ -24,7 +24,7 @@ public class ConsultaSessaoMain {
             //System.out.println(sessao.getHorarioSessao());
             //System.out.printf("%s - %s \n", sessao.getHorarioSessao(), sessao.getFilme().getTituloFilme());
             System.out.printf("%s - %s - %s\n", sessao.getHorarioSessao(), sessao.getSala().getNumeroSala(),
-                    sessao.getFilme().getTituloFilme());
+                    sessao.getIngresso().getDataIngresso());
         }
     }
 }

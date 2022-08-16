@@ -27,6 +27,6 @@ public class Sessao {
 
     @ManyToOne // JPA - Associação de Muitos para um
     @JoinColumn(nullable = false)
-    private Filme filme;
+    private Ingresso ingresso;
 
 }

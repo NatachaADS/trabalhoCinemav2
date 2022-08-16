@@ -8,7 +8,7 @@ import javax.persistence.*;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Data
 @Entity
-public class Filme {
+public class Ingresso {
 
     @EqualsAndHashCode.Include
     @Id
@@ -16,22 +16,13 @@ public class Filme {
     private Long id;
 
     @Column(nullable = false)
-    private String tituloFilme;
+    private String dataIngresso;
 
     @Column(nullable = false)
-    private String duracaoFilme;
-
-    @Column(nullable = false)
-    private String classificacaoFilme;
-
-    @Column(nullable = false)
-    private String generoFilme;
-
-    @Column(length = 2000,nullable = false)
-    private String sinopseFilme;
+    private String horarioIngresso;
 
     @ManyToOne // JPA - Associação de Muitos para um
-    @JoinColumn(nullable = false)
-    private Sessao sessao;
+    @JoinColumn(nullable = false) //
+    private VendaIngresso vendaIngresso;
 
 }
