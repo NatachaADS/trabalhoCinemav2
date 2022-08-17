@@ -2,8 +2,11 @@ package br.edu.ifrs.restina.dev1.grupo1.projetoCinemav2.MapeamentoManyToOne.Cont
 
 import br.edu.ifrs.restina.dev1.grupo1.projetoCinemav2.MapeamentoManyToOne.domain.model.Atendente;
 import br.edu.ifrs.restina.dev1.grupo1.projetoCinemav2.MapeamentoManyToOne.domain.repository.AtendenteRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,9 +41,20 @@ public class AtendenteController {
         return atendenteRepository.listar();
     }
 
+//    @GetMapping("/{atendenteId}")
+//    public Atendente buscar(@PathVariable Long atendenteId) {
+//        return atendenteRepository.buscar(atendenteId);
+//    }
+
     @GetMapping("/{atendenteId}")
-    public Atendente buscar(@PathVariable Long atendenteId) {
-        return atendenteRepository.buscar(atendenteId);
+    public ResponseEntity<Atendente> buscar(@PathVariable Long atendenteId) {
+        Atendente atendente = atendenteRepository.buscar(atendenteId);
+
+        if (atendente != null) {
+            return ResponseEntity.ok(atendente);
+        }
+
+        return ResponseEntity.notFound().build();
     }
 
     @PostMapping
@@ -49,4 +63,31 @@ public class AtendenteController {
         return atendenteRepository.salvar(atendente);
     }
 
+    @PutMapping("/{atendenteId}")
+    public ResponseEntity<Atendente> atualizar (@PathVariable Long atendenteId, @RequestBody Atendente atendente) {
+
+        Atendente atendenteAtual = atendenteRepository.buscar(atendenteId);
+
+        if (atendenteAtual != null) {
+            BeanUtils.copyProperties(atendente, atendenteAtual, "id");
+            atendenteRepository.salvar(atendenteAtual);
+            return ResponseEntity.ok(atendenteAtual);
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @DeleteMapping("/{atendenteId}")
+    public ResponseEntity<Atendente> remover(@PathVariable Long atendenteId) {
+        try {
+            Atendente atendente = atendenteRepository.buscar(atendenteId);
+
+            if (atendente != null) {
+                atendenteRepository.remover(atendente);
+                return ResponseEntity.noContent().build();
+            }
+            return ResponseEntity.notFound().build();
+        } catch (DataIntegrityViolationException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).build();
+        }
+    }
 }
