@@ -3,9 +3,8 @@ package br.edu.ifrs.restina.dev1.grupo1.projetoCinemav2.MapeamentoManyToOne.Cont
 import br.edu.ifrs.restina.dev1.grupo1.projetoCinemav2.MapeamentoManyToOne.domain.model.Cliente;
 import br.edu.ifrs.restina.dev1.grupo1.projetoCinemav2.MapeamentoManyToOne.domain.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -37,5 +36,16 @@ public class ClienteController {
     public List<Cliente> listar(){
         return clienteRepository.listar();
 
+    }
+
+    @GetMapping("/{clienteId}")
+    public Cliente buscar(@PathVariable Long clienteId) {
+        return clienteRepository.buscar(clienteId);
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Cliente adicionar (@RequestBody Cliente cliente) {
+        return clienteRepository.salvar(cliente);
     }
 }

@@ -18,8 +18,8 @@ public class VendaIngresso {
     @Column(nullable = false)
     private String horarioVendaIngresso;
 
-    @ManyToOne // JPA - Associação de Muitos para um
-    @JoinColumn(nullable = false)
-    private Sessao sessao;
+//    @ManyToOne // JPA - Associação de Muitos para um
+//    @JoinColumn(nullable = false)
+//    private Sessao sessao;
 
 }

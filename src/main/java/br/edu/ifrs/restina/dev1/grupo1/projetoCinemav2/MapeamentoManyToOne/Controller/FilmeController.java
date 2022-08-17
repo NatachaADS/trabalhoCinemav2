@@ -3,9 +3,8 @@ package br.edu.ifrs.restina.dev1.grupo1.projetoCinemav2.MapeamentoManyToOne.Cont
 import br.edu.ifrs.restina.dev1.grupo1.projetoCinemav2.MapeamentoManyToOne.domain.model.Filme;
 import br.edu.ifrs.restina.dev1.grupo1.projetoCinemav2.MapeamentoManyToOne.domain.repository.FilmeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,5 +35,16 @@ public class FilmeController {
     //1 definir metodo
     public List<Filme> listar(){
         return filmeRepository.listar();
+    }
+
+    @GetMapping("/{clienteId}")
+    public Filme buscar(@PathVariable Long filmeId) {
+        return filmeRepository.buscar(filmeId);
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Filme adicionar (@RequestBody Filme filme) {
+        return filmeRepository.salvar(filme);
     }
 }

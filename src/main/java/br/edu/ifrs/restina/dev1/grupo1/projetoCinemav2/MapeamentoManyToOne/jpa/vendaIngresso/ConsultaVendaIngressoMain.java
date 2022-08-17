@@ -22,7 +22,7 @@ public class ConsultaVendaIngressoMain {
 
         for (VendaIngresso vendaIngresso : todasVendaIngressos) {
             //System.out.println(vendaIngresso.getHorarioVendaIngresso());
-            System.out.printf("%s - %s\n", vendaIngresso.getHorarioVendaIngresso(), vendaIngresso.getSessao().getHorarioSessao());
+            System.out.printf("%s \n", vendaIngresso.getHorarioVendaIngresso());
         }
     }
 }

@@ -38,10 +38,10 @@ insert into sala (id, numero_sala, qnt_assentos) values (1, 'A10', 110);
 insert into sala (id, numero_sala, qnt_assentos) values (2, 'A20', 220);
 insert into sala (id, numero_sala, qnt_assentos) values (3, 'A30', 330);
 
-insert into ingresso (id, data_ingresso, horario_ingresso) values (1, '10/08/2022', '20:00');
-insert into ingresso (id, data_ingresso, horario_ingresso) values (2, '12/08/2022', '21:00');
-insert into ingresso (id, data_ingresso, horario_ingresso) values (3, '15/08/2022', '15:00');
+--insert into ingresso (id, data_ingresso, horario_ingresso) values (1, '10/08/2022', '20:00');
+--insert into ingresso (id, data_ingresso, horario_ingresso) values (2, '12/08/2022', '21:00');
+--insert into ingresso (id, data_ingresso, horario_ingresso) values (3, '15/08/2022', '15:00');
 
-insert into sessao (id, horario_sessao, sala_id, ingresso_id) values (1, '20:00', 3, 1);
-insert into sessao (id, horario_sessao, sala_id, ingresso_id) values (2, '14:00', 2, 2);
-insert into sessao (id, horario_sessao, sala_id, ingresso_id) values (3, '10:00', 1, 3);
+--insert into sessao (id, horario_sessao, sala_id, ingresso_id) values (1, '20:00', 3, 1);
+--insert into sessao (id, horario_sessao, sala_id, ingresso_id) values (2, '14:00', 2, 2);
+--insert into sessao (id, horario_sessao, sala_id, ingresso_id) values (3, '10:00', 1, 3);
