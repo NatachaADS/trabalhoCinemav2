@@ -2,8 +2,11 @@ package br.edu.ifrs.restina.dev1.grupo1.projetoCinemav2.MapeamentoManyToOne.Cont
 
 import br.edu.ifrs.restina.dev1.grupo1.projetoCinemav2.MapeamentoManyToOne.domain.model.Filme;
 import br.edu.ifrs.restina.dev1.grupo1.projetoCinemav2.MapeamentoManyToOne.domain.repository.FilmeRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,14 +40,53 @@ public class FilmeController {
         return filmeRepository.listar();
     }
 
-    @GetMapping("/{clienteId}")
-    public Filme buscar(@PathVariable Long filmeId) {
-        return filmeRepository.buscar(filmeId);
+//    @GetMapping("/{filmeId}")
+//    public Filme buscar(@PathVariable Long filmeId) {
+//        return filmeRepository.buscar(filmeId);
+//    }
+
+    @GetMapping("/{filmeId}")
+    public ResponseEntity<Filme> buscar(@PathVariable Long filmeId) {
+        Filme filme = filmeRepository.buscar(filmeId);
+
+        if (filme != null) {
+            return ResponseEntity.ok(filme);
+        }
+
+        return ResponseEntity.notFound().build();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Filme adicionar (@RequestBody Filme filme) {
         return filmeRepository.salvar(filme);
+    }
+
+    @PutMapping("/{filmeId}")
+    public ResponseEntity<Filme> atualizar (@PathVariable Long filmeId, @RequestBody Filme filme) {
+
+        Filme filmeAtual = filmeRepository.buscar(filmeId);
+
+        if (filmeAtual != null) {
+            BeanUtils.copyProperties(filme, filmeAtual, "id");
+            filmeRepository.salvar(filmeAtual);
+            return ResponseEntity.ok(filmeAtual);
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @DeleteMapping("/{filmeId}")
+    public ResponseEntity<Filme> remover(@PathVariable Long filmeId) {
+        try {
+            Filme filme = filmeRepository.buscar(filmeId);
+
+            if (filme != null) {
+                filmeRepository.remover(filme);
+                return ResponseEntity.noContent().build();
+            }
+            return ResponseEntity.notFound().build();
+        } catch (DataIntegrityViolationException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).build();
+        }
     }
 }
