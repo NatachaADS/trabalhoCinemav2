@@ -18,6 +18,7 @@ public class VendaIngresso {
     @Column(nullable = false)
     private String horarioVendaIngresso;
 
+// Tem uma relação de sessão com ingresso que elimina a necessidade com sessão e vendaIngresso
 //    @ManyToOne // JPA - Associação de Muitos para um
 //    @JoinColumn(nullable = false)
 //    private Sessao sessao;

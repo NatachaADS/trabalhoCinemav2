@@ -21,6 +21,7 @@ public class Sala {
     @Column(nullable = false)
     private int qntAssentos;
 
+    // A sessão já está relacionada na sala
     //@OneToOne
     //@JoinColumn(unique = true)
     //private Sessao sessao;
