@@ -11,7 +11,7 @@ insert into venda_ingresso (id, horario_venda_ingresso) values (2, '07:45');
 insert into venda_ingresso (id, horario_venda_ingresso) values (3, '10:00');
 
 insert into atendente (id, nome_atendente, matricula_atendente, cliente_id, orcamento_id, venda_ingresso_id) values (1, 'Amanda Farias', 100200300, 3, 2, 1);
-insert into atendente (id, nome_atendente, matricula_atendente, cliente_id, orcamento_id, venda_ingresso_id) values (2, 'Rafael V', 100400500, 2, 3, 1);
+insert into atendente (id, nome_atendente, matricula_atendente, cliente_id, orcamento_id, venda_ingresso_id) values (2, 'Rafael V', 100400500, 2, 3, 2);
 insert into atendente (id, nome_atendente, matricula_atendente, cliente_id, orcamento_id, venda_ingresso_id) values (3, 'Carol P', 100600700,1, 2, 3);
 
 insert into sessao (id, horario_sessao) values (1, '20:00');
